@@ -23,7 +23,7 @@ namespace SmartHomeLocal.WebTest.Models
                     JobId = x.JobId,
                     Time = x.Time,
                     Value = x.Value
-                }).ToList();
+                }).ToList(); 
             }
         }
     }
