@@ -1,0 +1,151 @@
+﻿@using SmartHomeLocal.WebTest.Models;
+@{    
+    ViewBag.Title = "Worker Index";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-4">
+        <a>Devices</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>DateOfBirth</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var dev in (ViewBag.Devices as List<DeviceModel>))
+                    {
+                        <tr>
+                            <td>@dev.Id</td>
+                            <td>@dev.Name</td>
+                            <td>@dev.DateOfReg.ToString()</td>
+                            <td>@dev.URL</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <a>Commands</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var comm in (ViewBag.Commands as List<CommandModel>))
+                    {
+                        <tr>
+                            <td>@comm.Id</td>
+                            <td>@comm.Code</td>
+                            <td>@comm.Description</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <a>Actions</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>DeviceName</th>
+                    <th>CommandCode</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var act in (ViewBag.Actions as List<ActionModel>))
+                    {
+                        <tr>
+                            <td>@act.Id</td>
+                            <td>@act.DeviceName</td>
+                            <td>@act.CommandCode</td>
+                            <td>@act.Description</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <a>Jobs</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>DeviceName</th>
+                    <th>CommandCode</th>
+                    <th>Time</th>
+                    <th>RepeatTimeMinutes</th>
+                    <th>RepeatTimeSeconds</th>
+                    <th>IsSensor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var job in (ViewBag.Jobs as List<JobModel>))
+                    {
+                        <tr>
+                            <td>@job.Id</td>
+                            <td>@job.DeviceName</td>
+                            <td>@job.CommandCode</td>
+                            <td>@job.Time</td>
+                            <td>@job.RepeatTimeMinutes</td>
+                            <td>@job.RepeatTimeSeconds</td>
+                            <td>@job.IsSensor</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <a>ReturnLogs</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Time</th>
+                    <th>Value</th>
+                    <th>JobId</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var rl in (ViewBag.ReturnLogs as List<ReturnLogModel>))
+                    {
+                        <tr>
+                            <td>@rl.Id</td>
+                            <td>@rl.Time</td>
+                            <td>@rl.Value</td>
+                            <td>@rl.JobId</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
